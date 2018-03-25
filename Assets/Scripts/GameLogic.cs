@@ -33,6 +33,8 @@ public class GameLogic : MonoBehaviour
 
 	public GameObject failAudioHolder;
 
+	public GameObject successAudioHolder;
+
 	void Start()
 	{
 		// Update 'player' to be the camera's parent gameobject, i.e. 'GvrEditorEmulator' instead of the camera itself.
@@ -192,6 +194,9 @@ public class GameLogic : MonoBehaviour
 	{
 		// Enable the restart UI.
 		restartUI.SetActive(true);
+
+		// Get the GVR audio source component on the failAudioHolder and play the audio.
+		successAudioHolder.GetComponent<GvrAudioSource>().Play();
 
 		// Move the player to the restart position.
 		iTween.MoveTo(player, 
